@@ -1,0 +1,62 @@
+<div class="row mt-3 mb-3">
+    <div class="col d-flex justify-content-end align-items-center">
+        <button type="button" class="btn btn-warning btn-sm" (click)="gotoList()">Back</button>
+    </div>
+</div>
+
+<h2>{{q}} ({{genre}})</h2>
+
+<div class="row mt-5" *ngFor="let item of searchResults">
+    <div class="col justify-content-between align-items-center">
+        <div class="row">
+            <div class="col-md-4">
+                <img src="{{item.image_url}}" class="img-fluid">
+            </div>
+            <div class="col-md-8 ">
+                <h4>{{item.title}}</h4>
+                <article>
+                    <strong>Synopsis</strong>
+                    <br>
+                    <span *ngIf="!!item.synopsis">
+                        {{item.synopsis}}
+                    </span>
+                    <span *ngIf="!item.synopsis">
+                        <em>N/A</em>
+                    </span>
+                </article>
+                <small *ngIf="genre == 'anime'">
+                    <ul class="list-unstyled">
+                        <li>Type: {{item.type}}</li>
+                        <li>Episodes: {{item.episodes}}</li>
+                        <li>Rated: {{item.rated}}</li>
+                    </ul>
+                </small>
+                <small *ngIf="genre == 'manga'">
+                    <ul class="list-unstyled">
+                        <li>Type: {{item.type}}</li>
+                        <li>Capters: {{item.chapters}}</li>
+                        <li>Volumes: {{item.volumes}}</li>
+                    </ul>
+                </small>
+                <a href="{{item.url}}">More info</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 
+image_url
+title
+synopsis 
+
+manga: 
+type
+chapters
+volumes
+publishing --- status
+
+anime:
+type
+episodes
+rated
+airing
+-->

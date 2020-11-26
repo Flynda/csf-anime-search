@@ -1,0 +1,33 @@
+<div class="row mt-3 mb-3">
+    <div class="col d-flex justify-content-end align-items-center">
+        <button type="button" class="btn btn-warning btn-sm" (click)="gotoList()">Back</button>
+    </div>
+</div>
+
+<form [formGroup]="search">
+    <div class="form-group">
+        <label for="q">Search Text ({{genre}})</label>
+        <input type="text" formControlName="q" class="form-control" id="q" placeholder="Enter the name to search">
+    </div>
+
+    <div class="btn-group btn-block" role="group">
+        <button type="button" class="btn btn-danger" (click)="setGenre('anime')">Anime</button>
+        <button type="button" class="btn btn-success" (click)="setGenre('manga')">Manga</button>
+    </div>
+    <div class="row mt-2">
+        <div class="col d-flex justify-content-end align-items-center">
+            <button type="button" 
+                class="btn btn-primary"
+                (click)="saveSearch()" 
+                [disabled]="search.invalid">
+                Save
+            </button>
+            <button type="button" 
+                class="btn btn-primary ml-1"
+                (click)="gotoResult()" 
+                [disabled]="search.invalid">
+                Search
+            </button>
+        </div>
+    </div>
+</form>

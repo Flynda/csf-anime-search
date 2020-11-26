@@ -1,0 +1,15 @@
+<!-- <button type="button" (click)="gotoHome()">Home</button> -->
+<div class="row mt-3">
+    <div class="col d-flex justify-content-between align-items-center">
+        <h5>My Searches</h5>
+        <button type="button" class="btn btn-info btn-sm" (click)="gotoSearch()">Search</button>
+    </div>
+</div>
+
+<hr>
+
+<ul class="list-group mt-3">
+    <a *ngFor="let s of searches" [routerLink]="['/search',s.genre, s.q]" class="list-group-item">
+        {{ s.q }} ({{ s.genre }})
+    </a>
+</ul>
