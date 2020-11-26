@@ -6,11 +6,11 @@
 
 <h2>{{q}} ({{genre}})</h2>
 
-<div class="row mt-5" *ngFor="let item of searchResults">
+<div class="row mt-5" *ngFor="let item of searchResults; let i=index">
     <div class="col justify-content-between align-items-center">
         <div class="row">
             <div class="col-md-4">
-                <img src="{{item.image_url}}" class="img-fluid">
+                <img src="{{item.image}}" class="img-fluid">
             </div>
             <div class="col-md-8 ">
                 <h4>{{item.title}}</h4>
@@ -39,6 +39,11 @@
                     </ul>
                 </small>
                 <a href="{{item.url}}">More info</a>
+                <div class="d-flex justify-content-end mb-1" *ngIf="canShare">
+                    <button type="button" class="btn btn-outline-dark btn-sm"
+                        (click)="shareThis(i)">
+                      🔗
+                </button>
             </div>
         </div>
     </div>
